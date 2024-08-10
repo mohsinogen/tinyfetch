@@ -1,0 +1,28 @@
+<ion-row>
+  <ion-col class="ion-no-padding">
+    <ion-text color="dark" class="f-size-5-px f-bold"
+      >Query Params</ion-text
+    >
+  </ion-col>
+</ion-row>
+<ion-row *ngFor="let item of queryParams; let qp = index">
+  <ion-col size="6" class="d-flex centered" style="flex-direction: row">
+    <ion-checkbox
+      [(ngModel)]="queryParams[qp]['isChecked']"
+      mode="ios"
+      class="ion-margin-end"
+    ></ion-checkbox
+    ><ion-input placeholder="key" [(ngModel)]="queryParams[qp]['key']"></ion-input>
+  </ion-col>
+  <ion-col size="6">
+    <ion-input placeholder="value" [(ngModel)]="queryParams[qp]['value']"></ion-input>
+  </ion-col>
+</ion-row>
+<ion-row *ngIf="queryParams.length<1" class="ion-margin-top">
+  <ion-text color="medium f-bold">No query params yet</ion-text>
+</ion-row>
+<ion-row class="ion-margin-top">
+  <ion-text (click)="addParamHandler()" class="f-bold" color="primary"
+    >Add Param</ion-text
+  >
+</ion-row>

@@ -1,0 +1,119 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar style="--min-height: 50px">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="makeRequestHandler()">
+        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="currentSegment==='request'" class="ion-margin-horizontal">
+    <ion-row>
+      <ion-col>
+        <ion-input
+          color="primary"
+          [readonly]="true"
+          [(ngModel)]="requestTitle"
+          mode="ios"
+          class="f-size-3-px"
+          type="text"
+          placeholder="Request Title"
+          #requestTitleInput
+        >
+        </ion-input>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button (click)="renameTitleHandler()" fill="clear">
+          <ion-icon name="pencil"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center" class="url-input-box">
+      <ion-col
+        size="2.5"
+        style="border-right: 1px solid var(--ion-color-medium)"
+      >
+        <ion-select
+          interface="popover"
+          style="--highlight-color-focused: transparent"
+          [value]="method"
+          (ionChange)="onMethodChange($event)"
+        >
+          <ion-select-option value="GET">GET</ion-select-option>
+          <ion-select-option value="POST">POST</ion-select-option>
+          <ion-select-option value="PUT">PUT</ion-select-option>
+          <ion-select-option value="DELETE">DELETE</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col size="9.5">
+        <ion-input
+          class="f-size-5-px"
+          [(ngModel)]="url"
+          mode="ios"
+          (ionChange)="onUrlChange($event)"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-segment
+      (ionChange)="onTabChange($event)"
+      style="margin-top: 10px"
+      [scrollable]="true"
+      [value]="currentTab"
+    >
+      <ion-segment-button
+        class="d-flex centered"
+        *ngFor="let item of tabsOptions"
+        [value]="item['title']"
+      >
+        <ion-label class="f-size-6-px">{{item['title']}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div *ngIf="currentTab==='Params'" class="ion-margin-top">
+      <query-params></query-params>
+    </div>
+
+    <div *ngIf="currentTab==='Authorization'" class="ion-margin-top">
+      <authorization></authorization>
+    </div>
+    <div *ngIf="currentTab==='Body'" class="ion-margin-top">
+      <app-body></app-body>
+    </div>
+  </div>
+
+  <div
+    *ngIf="currentSegment==='response'"
+    class="f-family-poppins t-center d-flex centered"
+    style="height: 100%; flex-direction: column"
+  >
+    <ion-text class="f-size-4-px" color="dark">No response yet</ion-text>
+    <ion-text class="f-size-6-px" color="medium">
+      click send to get a response
+    </ion-text>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar style="--min-height: 50px">
+    <ion-segment (ionChange)="onSegmentChange($event)" [value]="currentSegment">
+      <ion-segment-button layout="icon-start" value="request">
+        <ion-label>Request</ion-label>
+        <ion-icon name="arrow-up"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button layout="icon-start" value="response">
+        <ion-label>Response</ion-label>
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

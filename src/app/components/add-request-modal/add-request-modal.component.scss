@@ -1,0 +1,15 @@
+.get-item{
+    --color: var(--ion-color-success);
+}
+
+.post-item{
+    --color: var(--ion-color-warning)
+}
+
+.put-item{
+    --color: var(--ion-color-secondary)
+}
+
+.delete-item{
+    --color: var(--ion-color-danger);
+}

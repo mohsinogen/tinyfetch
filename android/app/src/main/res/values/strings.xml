@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">tinyfetch</string>
+    <string name="title_activity_main">tinyfetch</string>
+    <string name="package_name">com.mohsinansari.tinyfetch</string>
+    <string name="custom_url_scheme">com.mohsinansari.tinyfetch</string>
+</resources>

@@ -1,0 +1,19 @@
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <ion-text> Content Type </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-select
+        interface="popover"
+        style="--highlight-color-focused: transparent"
+        [value]="selectedType"
+        (ionChange)="onContentTypeChange($event)"
+      >
+        <ion-select-option
+          *ngFor="let item of contentTypes"
+          [value]="item['value']"
+          >{{ item["title"] }}</ion-select-option
+        >
+      </ion-select>
+    </ion-col>
+  </ion-row>

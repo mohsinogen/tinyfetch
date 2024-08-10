@@ -34,4 +34,184 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* @import "@ionic/angular/css/palettes/dark.system.css"; */
+
+
+.ion-content {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+  
+  .d-flex {
+    display: flex !important;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .centered {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .f-light {
+    font-weight: normal;
+  }
+  
+  .f-bold {
+    font-weight: bold;
+  }
+  
+  .f-bolder {
+    font-weight: bolder;
+  }
+  
+  .t-underline {
+    text-decoration: underline;
+  }
+  
+  .row-between {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .f-size-1-px {
+    font-size: 36px;
+  }
+  .f-size-2-px {
+    font-size: 30px;
+  }
+  .f-size-3-px {
+    font-size: 25px;
+  }
+  .f-size-4-px {
+    font-size: 21px;
+  }
+  .f-size-5-px {
+    font-size: 17px;
+  }
+  .f-size-6-px {
+    font-size: 14px !important;
+  }
+  .f-size-7-px {
+    font-size: 12px !important;
+  }
+  .f-size-8-px {
+    font-size: 10px !important;
+  }
+  .f-size-9-px {
+    font-size: 8px !important;
+  }
+  
+  .f-size-1-rem {
+    font-size: 3rem;
+  }
+  .f-size-2-rem {
+    font-size: 2.5rem;
+  }
+  .f-size-3-rem {
+    font-size: 2.083rem;
+  }
+  .f-size-4-rem {
+    font-size: 1.75rem;
+  }
+  .f-size-5-rem {
+    font-size: 1.417rem;
+  }
+  .f-size-6-rem {
+    font-size: 1.167rem;
+  }
+  .f-size-7-rem {
+    font-size: 1rem;
+  }
+  .f-size-8-rem {
+    font-size: 0.833rem;
+  }
+  .f-size-9-rem {
+    font-size: 0.667rem;
+  }
+  
+  .home-menu-popup {
+    --width: 300px;
+  }
+  
+  .ad-popup{
+    --width: 300px;
+  }
+  
+  .t-underline {
+    text-decoration: underline;
+  }
+  
+  .t-cap {
+    text-transform: capitalize !important;
+  }
+  
+  .t-math {
+    text-transform: lowercase !important;
+  }
+  
+  .t-math::first-letter {
+    text-transform: uppercase !important;
+  }
+  
+  .t-upper {
+    text-transform: uppercase;
+  }
+  .t-lower {
+    text-transform: lowercase;
+  }
+  
+  .o-hidden {
+    overflow: hidden !important;
+  }
+  
+  .f-family-saira {
+    font-family: "SairaCondensed", sans-serif !important;
+  }
+  
+  .f-family-poppins {
+    font-family: "Poppins", sans-serif !important;
+  }
+  
+  .f-family-roboto {
+    font-family: "Roboto", sans-serif !important;
+  }
+  
+  
+  .datepicker-modal {
+    --height: fit-content;
+    --width: fit-content;
+  }
+  
+  .t-left{
+    text-align: left;
+  }
+  .t-right{
+    text-align: right;
+  }
+  .t-center{
+    text-align: center;
+  }
+  
+  .logi {
+    color: var(--ion-color-danger);
+  }
+  
+  .calls {
+    color: var(--ion-color-medium-tint);
+  }
+  
+  .add-request-modal{
+    --border-radius: 30px 30px 0px 0px;;
+    --max-height: 100vh;
+  }
+
+  .item-underline{
+    border-bottom: 1px solid var(--ion-color-medium-tint);
+  }

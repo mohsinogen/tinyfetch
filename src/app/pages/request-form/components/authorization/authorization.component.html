@@ -1,0 +1,76 @@
+<div class="d-flex" style="flex-direction: column">
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <ion-text> Authorization Type </ion-text>
+    </ion-col>
+    <ion-col>
+      <ion-select
+        interface="popover"
+        style="--highlight-color-focused: transparent"
+        [value]="selectedAuthorization"
+        (ionChange)="onAuthTypeChange($event)"
+      >
+        <ion-select-option
+          *ngFor="let item of authorizationTypes"
+          [value]="item['value']"
+          >{{ item["title"] }}</ion-select-option
+        >
+      </ion-select>
+    </ion-col>
+  </ion-row>
+
+  <div
+    *ngIf="selectedAuthorization === ''"
+    class="f-family-poppins t-center d-flex centered"
+    style="height: 100%; flex-direction: column"
+  >
+    <ion-text class="f-size-6-px" color="medium"
+      >No Authorization selected</ion-text
+    >
+  </div>
+
+  <div *ngIf="selectedAuthorization === 'basic'">
+    <ion-row
+      class="ion-margin-top ion-padding-start"
+      style="border: 1px solid var(--ion-color-medium); border-radius: 5px"
+    >
+      <ion-col>
+        <ion-input mode="ios" placeholder="Username"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      class="ion-margin-top ion-padding-start"
+      style="border: 1px solid var(--ion-color-medium); border-radius: 5px"
+    >
+      <ion-col>
+        <ion-input mode="ios" placeholder="Password"></ion-input>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div
+    *ngIf="selectedAuthorization === 'bearer'"
+    style="border: 1px solid var(--ion-color-medium); border-radius: 5px"
+  >
+    <ion-textarea
+      rows="8"
+      [autoGrow]="true"
+      mode="ios"
+      [autofocus]="true"
+    ></ion-textarea>
+  </div>
+  <div *ngIf="selectedAuthorization === 'api-key'">
+    <ion-row
+      class="ion-margin-top ion-justify-content-between"
+      
+    >
+      <ion-col class="ion-padding-start" size="3.5" style="border: 1px solid var(--ion-color-medium); border-radius: 5px">
+        <ion-input mode="ios" placeholder="Key"></ion-input>
+      </ion-col>
+      <ion-col class="ion-padding-start" size="7.5" style="border: 1px solid var(--ion-color-medium); border-radius: 5px">
+        <ion-input mode="ios" placeholder="Value"></ion-input>
+      </ion-col>
+    </ion-row>
+    
+  </div>
+</div>

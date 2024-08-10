@@ -1,0 +1,28 @@
+<div>
+  <ion-row
+    class="ion-justify-content-end ion-align-items-center ion-margin-top"
+  >
+    <ion-col>
+      <ion-text color="dark" class="f-size-4-px ion-margin-start">
+        Add new request
+      </ion-text>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button (click)="closeModal()" mode="ios" color="medium">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list [inset]="true" mode="ios">
+    <ion-item *ngFor="let item of httpMethods"
+      [button]="true"
+      [detail]="false"
+      class="{{item['cssClass']}}"
+      (click)="newRequestHandler(item['title'])"
+    >
+      <ion-label>{{item['title']}}</ion-label>
+    </ion-item>
+    
+  </ion-list>
+</div>
