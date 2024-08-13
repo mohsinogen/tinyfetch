@@ -4,6 +4,8 @@ import { AlertController } from '@ionic/angular';
 import { CommonService } from 'src/app/services/common.service';
 import { HttpService } from 'src/app/services/http.service';
 import { HttpMethod, QueryParam, TinyRequest } from 'src/app/types/global.types';
+import { QueryParamsComponent } from './components/query-params/query-params.component';
+import { AuthorizationComponent } from './components/authorization/authorization.component';
 
 @Component({
   selector: 'app-request-form',
@@ -23,6 +25,11 @@ export class RequestFormPage implements OnInit {
   url: string= 'https://jsonplaceholder.typicode.com/todos/1';
 
   validMethods:HttpMethod[]=['GET','POST','PUT','DELETE']
+
+  @ViewChild(QueryParamsComponent) QueryParamsComponent!: QueryParamsComponent;
+  @ViewChild(AuthorizationComponent) AuthorizationComponent!: AuthorizationComponent;
+
+  ngOnInit() {}
 
   constructor(
     private route: ActivatedRoute,
@@ -120,10 +127,14 @@ export class RequestFormPage implements OnInit {
   }
 
   makeRequestHandler(){
-   /*  let httpRequest:TinyRequest = {
+    const queryParams = this.QueryParamsComponent.getQueryParamsData();
+    const authData = this.AuthorizationComponent.getAuthorizationData();
+
+    let httpRequest:TinyRequest = {
       url: this.url,
       method: this.method,
-      queryParams: this.queryParams
+      queryParams: queryParams,
+      authorization: authData
     } 
 
     this.http.makeRequest(httpRequest).subscribe(
@@ -137,10 +148,8 @@ export class RequestFormPage implements OnInit {
           
         },
       }
-    ) */
-    
-    
+    )
   }
 
-  ngOnInit() {}
+  
 }

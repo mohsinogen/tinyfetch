@@ -22,4 +22,8 @@ export class QueryParamsComponent  implements OnInit {
        isChecked: true,
      })
    }
+
+   getQueryParamsData(){
+    return this.queryParams;
+   }
 }

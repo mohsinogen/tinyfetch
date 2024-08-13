@@ -11,6 +11,11 @@ export class BodyComponent  implements OnInit {
 
   ngOnInit() {}
 
+  currentMimeType:'application/json'|'text/plain'|'application/xml'|'application/octet-stream'|'' = '';
+
+  editorOptions = {theme: 'vs-dark', language: 'json', contextmenu: false};
+  code: string= '{"test":"test value"}';
+
   contentTypes = [
     {
       title:'None',
@@ -50,6 +55,15 @@ export class BodyComponent  implements OnInit {
 
   onContentTypeChange(ev:any){
     this.selectedType = ev.detail.value;
+    if(ev.detail.value==='json'){
+      this.currentMimeType='application/json';
+    } else if(ev.detail.value==='text' || ev.detail.value==='raw'){
+      this.currentMimeType='text/plain';
+    } else if(ev.detail.value==='text'){
+      this.currentMimeType='application/xml';
+    }else if(ev.detail.value==='binary'){
+      this.currentMimeType='application/octet-stream';
+    }
   }
 
 }
